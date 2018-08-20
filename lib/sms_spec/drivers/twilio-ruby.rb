@@ -20,8 +20,21 @@ module Twilio
   private_class_method :configuration
 
   module REST
-    class Client
+    class Api
+      class V2010
+        class AccountContext
+          class MessageList
+            include SmsSpec::Helpers
 
+            def create(to: nil, status_callback: :unset, application_sid: :unset, max_price: :unset, provide_feedback: :unset, validity_period: :unset, max_rate: :unset, force_delivery: :unset, provider_sid: :unset, content_retention: :unset, address_retention: :unset, smart_encoded: :unset, from: :unset, messaging_service_sid: :unset, body: :unset, media_url: :unset)
+              add_message SmsSpec::Message.new(:number => to, :from => from, :body => body)
+            end
+          end
+        end
+      end
+    end
+
+    class Client
       def initialize(*args)
         # mimic the primary class's #initialize.
         options = args.last.is_a?(Hash) ? args.pop : {}
