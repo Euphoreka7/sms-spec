@@ -18,9 +18,9 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  s.add_dependency 'rspec', "~> 3.1"
+  s.add_dependency 'rspec', ">= 3.10.0"
   s.add_development_dependency "rake"
-  s.add_development_dependency "twilio-ruby", "~> 3.0"
-  s.add_development_dependency "lookout-clickatell", "~> 0.8"
+  s.add_development_dependency "twilio-ruby", ">= 3.0"
+  s.add_development_dependency "lookout-clickatell", ">= 0.8"
   s.add_development_dependency "pry"
 end
